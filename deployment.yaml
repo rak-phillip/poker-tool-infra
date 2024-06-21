@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: poker-tool-backend
+  name: poker-tool-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poker-tool-backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: poker-tool-backend
+    spec:
+      containers:
+      - image: rakpw/poker-tool-backend:0.1.0
+        name: poker-tool-backend
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NODE_ENV
+          value: production
+        resources: {}
+status: {}

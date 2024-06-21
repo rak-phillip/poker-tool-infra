@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: poker-tool-backend
+  name: poker-tool-backend
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: poker-tool-backend
+  type: LoadBalancer
+status:
+  loadBalancer: {}
