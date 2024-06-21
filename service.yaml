@@ -6,13 +6,18 @@ metadata:
     app: poker-tool-backend
   name: poker-tool-backend
 spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
   ports:
-  - name: 8080-8080
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
+    - name: poker-tool-service-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
   selector:
     app: poker-tool-backend
+  sessionAffinity: None
   type: ClusterIP
 status:
   loadBalancer: {}
