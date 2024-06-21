@@ -11,10 +11,9 @@ spec:
     port: 8080
     protocol: TCP
     targetPort: 8080
-    nodePort: 30080
   selector:
     app: poker-tool-backend
-  type: NodePort
+  type: ClusterIP
 status:
   loadBalancer: {}
 
