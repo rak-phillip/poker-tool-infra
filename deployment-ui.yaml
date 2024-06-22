@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: poker-tool
+  name: poker-tool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poker-tool
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: poker-tool
+    spec:
+      containers:
+      - image: rakpw/poker-tool:0.1.0
+        name: poker-tool
+        ports:
+        - containerPort: 4000
+        env:
+        - name: NODE_ENV
+          value: production
+        - name: VUE_APP_SERVER_URL
+          value: "http://poker-tool-backend:8080"
+        resources: {}
+status: {}
